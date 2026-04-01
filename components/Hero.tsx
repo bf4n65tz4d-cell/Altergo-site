@@ -7,10 +7,10 @@ export default function Hero() {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Background image + overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#e61f93]/90 via-[#e61f93]/60 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#e61f93]/75 via-[#e61f93]/40 to-transparent z-10" />
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1400&q=80')" }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80')" }}
       />
 
       <div className="relative z-20 w-full max-w-6xl mx-auto px-4 md:px-8 py-16 flex flex-col md:flex-row items-center gap-10">
@@ -31,7 +31,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-4 text-white/80 text-lg max-w-md"
           >
-            La plateforme de mise en relation entre étudiants TC et alumni alternants de l&apos;IUT Lyon 1.
+            La plateforme d&apos;alternance qui relie étudiants, entreprises et alumni.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -54,7 +54,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col sm:flex-row md:flex-col gap-4 w-full md:w-72"
         >
-          <Link href="/etudiants" className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow group">
+          <Link href="/connexion?type=etudiant" className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow group">
             <div className="flex justify-center mb-3">
               <div className="w-16 h-16 rounded-full bg-[#e61f93]/10 flex items-center justify-center">
                 <GraduationCap className="w-8 h-8 text-[#e61f93]" />
@@ -69,7 +69,7 @@ export default function Hero() {
             </div>
           </Link>
 
-          <Link href="/entreprises" className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow group">
+          <Link href="/connexion?type=entreprise" className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-shadow group">
             <div className="flex justify-center mb-3">
               <div className="w-16 h-16 rounded-full bg-[#38b6ff]/10 flex items-center justify-center">
                 <Building2 className="w-8 h-8 text-[#38b6ff]" />

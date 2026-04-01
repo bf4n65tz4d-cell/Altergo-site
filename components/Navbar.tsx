@@ -36,10 +36,10 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:flex flex-1 items-center justify-center gap-1">
-          {[{ label: "Étudiant", href: "/etudiants" }, { label: "Entreprise", href: "/entreprises" }].map(({ label, href }) => {
-            const active = pathname === href;
+          {[{ label: "Étudiant", href: "/etudiants", loginHref: "/connexion?type=etudiant" }, { label: "Entreprise", href: "/entreprises", loginHref: "/connexion?type=entreprise" }].map(({ label, href, loginHref }) => {
+            const active = pathname === href || pathname === loginHref || pathname.startsWith("/compte");
             return (
-              <Link key={href} href={href} className={`relative flex items-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg transition-all ${active ? "bg-white/20 text-white" : "text-white/80 hover:bg-white/10 hover:text-white"}`}>
+              <Link key={href} href={loginHref} className={`relative flex items-center gap-2 px-5 py-2 text-sm font-semibold rounded-lg transition-all ${active ? "bg-white/20 text-white" : "text-white/80 hover:bg-white/10 hover:text-white"}`}>
                 {label}
                 {active && <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-white rounded-full" />}
               </Link>
@@ -116,8 +116,8 @@ export default function Navbar() {
 
       {menuOpen && (
         <div className="md:hidden bg-white border-b border-gray-100 px-4 py-4 flex flex-col gap-3">
-          <Link href="/etudiants" onClick={() => setMenuOpen(false)} className="bg-[#ffeb99] text-black font-semibold px-4 py-2 rounded-full text-sm text-center">Étudiant</Link>
-          <Link href="/entreprises" onClick={() => setMenuOpen(false)} className="bg-[#ffeb99] text-black font-semibold px-4 py-2 rounded-full text-sm text-center">Entreprise</Link>
+          <Link href="/connexion?type=etudiant" onClick={() => setMenuOpen(false)} className="bg-[#ffeb99] text-black font-semibold px-4 py-2 rounded-full text-sm text-center">Étudiant</Link>
+          <Link href="/connexion?type=entreprise" onClick={() => setMenuOpen(false)} className="bg-[#ffeb99] text-black font-semibold px-4 py-2 rounded-full text-sm text-center">Entreprise</Link>
           <Link href="/alumni" onClick={() => setMenuOpen(false)} className="text-[#403e3f] font-medium text-sm text-center py-1">Alumni</Link>
           <Link href="/ressources" onClick={() => setMenuOpen(false)} className="text-[#403e3f] font-medium text-sm text-center py-1">Ressources</Link>
           <Link href="/contact" onClick={() => setMenuOpen(false)} className="text-[#403e3f] font-medium text-sm text-center py-1">Contact</Link>
